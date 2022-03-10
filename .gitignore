@@ -1,0 +1,17 @@
+*.qpf
+*.qws
+*.vhd.bak
+*.kpt
+*.cnf.cdb
+*.cmp.cdb
+*.json
+*.v
+*.qsf
+*.rpt
+\db
+\incremnatal_db
+\simulation
+\output_files
+\compiled_partitions
+    
+
