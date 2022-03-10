@@ -7,8 +7,8 @@ USE work.ITCE364Project_labs.ALL;
 
 ENTITY lab1 IS
     PORT (
-        A, B : IN STD_LOGIC_VECTOR(length - 1 DOWNTO 0);
-        R : OUT STD_LOGIC_VECTOR(length - 1 DOWNTO 0)
+        A, B : IN STD_LOGIC_VECTOR(length - 1 DOWNTO 0):=Ali_Redha_A;
+        R : OUT STD_LOGIC_VECTOR(length - 1 DOWNTO 0) := Ali_Redha_B
 
     );
 END ENTITY;
@@ -30,6 +30,9 @@ BEGIN
         A XOR B WHEN rom(5), -- xor
         NOT A WHEN rom(6), -- not  
         (OTHERS => '1') WHEN rom(7), -- set to one if op = 7     
-        "ZZZZZZZZ" WHEN OTHERS;
+        (OTHERS => 'Z')WHEN OTHERS;
 
 END ARCHITECTURE;
+
+
+
