@@ -23,7 +23,7 @@ ARCHITECTURE rtl OF tm_project_tb IS
 
     ---------------- Signal -------------------
 
-    SIGNAL clk, reset, load, shift : STD_LOGIC := '0';
+    SIGNAL clk, reset, load, shift : STD_LOGIC := '0'; 
     SIGNAL eni : STD_LOGIC := '1';
     SIGNAL top_numbers, numberin : STD_LOGIC_VECTOR(data_width - 1 DOWNTO 0):= "10010100101110001101101011001110";
     FILE file_VECTORS : text;

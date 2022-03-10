@@ -7,15 +7,16 @@ USE work.ITCE364Project_labs.ALL;
 
 ENTITY lab1 IS
     PORT (
-        A, B : IN STD_LOGIC_VECTOR(length - 1 DOWNTO 0):=Ali_Redha_A;
-        R : OUT STD_LOGIC_VECTOR(length - 1 DOWNTO 0) := Ali_Redha_B
+        A : IN STD_LOGIC_VECTOR(length - 1 DOWNTO 0):=Ali_Redha_A;
+        B : IN STD_LOGIC_VECTOR(length - 1 DOWNTO 0):=Ali_Redha_B;
+        op : IN INTEGER RANGE 0 TO opcode := 0;
+        R : OUT STD_LOGIC_VECTOR(length - 1 DOWNTO 0) 
 
     );
 END ENTITY;
 
 ARCHITECTURE rtl OF lab1 IS
 
-    SIGNAL op : INTEGER RANGE 0 TO 7 := 0;
 
 BEGIN
 

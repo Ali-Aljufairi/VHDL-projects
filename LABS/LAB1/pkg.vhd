@@ -6,8 +6,8 @@ PACKAGE ITCE364Project_labs IS
 
     ----------------------Constant------------------------------------
     CONSTANT length : INTEGER := 8;
-    CONSTANT opcode : INTEGER := 3;  
-	 CONSTANT Ali_Redha_A : std_logic_vector(length - 1 downto 0) :="00000011";
+    CONSTANT opcode : INTEGER := 7;  
+	CONSTANT Ali_Redha_A : std_logic_vector(length - 1 downto 0) :="00000011";
     CONSTANT Ali_Redha_B : std_logic_vector(length - 1 downto 0) :="00000000";
 	
    ----------------------Type----------------------------------------
