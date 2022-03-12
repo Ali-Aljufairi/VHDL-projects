@@ -31,7 +31,7 @@ BEGIN
         A XOR B WHEN rom(5), -- xor
         NOT A WHEN rom(6), -- not  
         (OTHERS => '1') WHEN rom(7), -- set to one if op = 7     
-        (OTHERS => 'Z')WHEN OTHERS;
+        "ZZZZZZZZ"WHEN OTHERS;
 
 END ARCHITECTURE;
 
