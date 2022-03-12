@@ -9,7 +9,6 @@ ENTITY lab1 IS
     PORT (
         A : IN STD_LOGIC_VECTOR(length - 1 DOWNTO 0) := Ali_Redha_A;
         B : IN STD_LOGIC_VECTOR(length - 1 DOWNTO 0) := Ali_Redha_B;
-        -- op : STD_LOGIC_VECTOR(2 DOWNTO 0);
         op : IN INTEGER RANGE 0 TO opcode := 0;
         R : OUT STD_LOGIC_VECTOR(length - 1 DOWNTO 0)
 

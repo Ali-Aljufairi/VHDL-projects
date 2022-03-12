@@ -31,7 +31,6 @@ BEGIN
     BEGIN
         FOR i IN 0 TO opcode LOOP
             Op_sig <= i;
-
             WAIT FOR 50 ns;
         END LOOP;
     END PROCESS;
