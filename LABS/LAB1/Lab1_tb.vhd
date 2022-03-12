@@ -22,7 +22,7 @@ ARCHITECTURE rtl OF Lab1_tb IS
     ---------------- Signal -------------------
     SIGNAL A_sig : STD_LOGIC_VECTOR(length - 1 DOWNTO 0) := Ali_Redha_A;
     SIGNAL B_sig : STD_LOGIC_VECTOR(length - 1 DOWNTO 0) := Ali_Redha_B;
-    SIGNAL Op_sig : INTEGER RANGE 0 TO 8 := 0;
+    SIGNAL Op_sig : INTEGER RANGE 0 TO Opcode:= 0;
     SIGNAL R_sig : STD_LOGIC_VECTOR(length - 1 DOWNTO 0);
 
 BEGIN
@@ -35,5 +35,6 @@ BEGIN
             WAIT FOR 50 ns;
         END LOOP;
     END PROCESS;
+  
 
 END rtl;
