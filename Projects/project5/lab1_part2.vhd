@@ -27,9 +27,9 @@ BEGIN
     IF op = 0 THEN
     R <=  (OTHERS => '0');
     ELSIF op = 1 THEN
-		R <= A + B;
-    ELSIF op = 2 THEN
 		R <= A - B;
+    ELSIF op = 2 THEN
+		R <= A + B;
     ELSIF op = 3 THEN
 		R <= A AND B;
     ELSIF op = 4 THEN

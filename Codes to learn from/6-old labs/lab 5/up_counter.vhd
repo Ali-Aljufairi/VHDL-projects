@@ -24,10 +24,8 @@ BEGIN
                 IF count_i = 255 THEN
 
                     count_i <= 0;
-
                 ELSE
                     count_i <= count_i + 1;
-
                 END IF;
             END IF;
         END IF;
