@@ -1,0 +1,14 @@
+# auto-generated
+[Libraries]
+work.files = [
+	'Lab1.vhd',
+	'Lab1_tb.vhd',
+	'pkg.vhd'
+]
+[libraries.work]
+files = [
+	'Lab1.vhd',
+	'Lab1_tb.vhd',
+	'pkg.vhd'
+]
+# auto-generated-end

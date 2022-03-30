@@ -25,8 +25,8 @@ ARCHITECTURE rtl OF tm_project_ulimate_tb IS
     ---------------- Signal -------------------
 
     SIGNAL rand_num : INTEGER := 0;----random number value 
-	 SIGNal randomwait : std_logic := '0'; ------ signal to be used to stop other procces from running 
-	 SIGnal randomwait2 : std_logic := '1';------ signal to be used to stop other procces from running 
+	SIGNal randomwait : std_logic := '0'; ------ signal to be used to stop other procces from running 
+	SIGnal randomwait2 : std_logic := '1';------ signal to be used to stop other procces from running 
     SIGNAL randomsig : STD_LOGIC_VECTOR(data_width - 1 DOWNTO 0) := (OTHERS => '0');
     FILE writonfile : text;
     SIGNAL clk, reset, load, shift : STD_LOGIC := '0';

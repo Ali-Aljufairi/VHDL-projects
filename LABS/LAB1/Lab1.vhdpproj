@@ -1,0 +1,11 @@
+﻿<Project>
+  <ItemGroup>
+    <File Include="Software/NewNIOS/NewNIOS.cpp" />
+    <File Include="Lab1.vhd" />
+    <File Include="Lab1_tb.vhd" />
+    <File Include="pkg.vhd" />
+  </ItemGroup>
+  <PropertyGroup>
+    <SoftwareStartPath>Software/NewNIOS</SoftwareStartPath>
+  </PropertyGroup>
+</Project>
