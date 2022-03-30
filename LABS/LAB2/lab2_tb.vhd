@@ -52,9 +52,8 @@ BEGIN
 
 
 
-      
 
 
-        --   clk <= NOT clk AFTER 100 ns;
+
 
     END ARCHITECTURE;
