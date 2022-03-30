@@ -37,16 +37,24 @@ BEGIN
 
     PROCESS
     BEGIN
-    
-        --    Generate clock signal 
-        clk <= '1';     
-        wait for clk_period_half;       
-        clk <= '0';     
-        wait for clk_period_half;       
-  
-    --   clk <= NOT clk AFTER 100 ns;
 
-    END PROCESS;
-    
-    
-END ARCHITECTURE;
+         Generate clock signal 
+        clk <= '0';
+        FOR i IN 1 TO 50
+            LOOP
+                clk <= NOT clk;
+                WAIT FOR clk_period;
+            END LOOP;
+        END PROCESS;
+
+      wr_en <= '1'; 
+
+
+
+
+      
+
+
+        --   clk <= NOT clk AFTER 100 ns;
+
+    END ARCHITECTURE;

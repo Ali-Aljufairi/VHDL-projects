@@ -19,14 +19,6 @@ ARCHITECTURE rtl OF lab2 IS
 
     SIGNAL myreg : reg_array := (OTHERS => (OTHERS => '-'));
 
-    -- In VHDL we have  a lot of value  not only 1 and 0 
-    --  ‘Z’	High impedance
-    --  ‘W’	Weak signal, can’t tell if 0 or 1
-    --  ‘L’	Weak 0, pulldown
-    --  ‘H’	Weak 1, pullup
-    --  ‘-‘	Don’t care
-    --  ‘U’	Uninitialized
-    --  ‘X’	Unknown, multiple drivers
 
 BEGIN
 
