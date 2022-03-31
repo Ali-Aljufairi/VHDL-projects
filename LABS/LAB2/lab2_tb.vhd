@@ -38,7 +38,7 @@ BEGIN
     PROCESS
     BEGIN
 
-         Generate clock signal 
+       
         clk <= '0';
         FOR i IN 1 TO 50
             LOOP

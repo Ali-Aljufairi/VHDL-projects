@@ -1,53 +1,45 @@
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
-USE ieee.numeric_std.ALL;
-USE ieee.std_logic_unsigned.ALL;
-USE ieee.std_logic_arith.ALL;
-USE work.ITCE364Project_labs.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.std_logic_unsigned.all;
+use ieee.std_logic_arith.all;
+use work.ITCE364Project_labs.all;
 
-ENTITY lab1_part2 IS
-    PORT (
-        A : IN STD_LOGIC_VECTOR(length - 1 DOWNTO 0) :=Ali_Redha_A;
-        B : IN STD_LOGIC_VECTOR(length - 1 DOWNTO 0) := Ali_Redha_B;
-        R : OUT STD_LOGIC_VECTOR(length - 1 DOWNTO 0)   
+entity lab1_part2 is
+  port (
+    A : in std_logic_vector(length - 1 downto 0) := Ali_Redha_A;
+    B : in std_logic_vector(length - 1 downto 0) := Ali_Redha_B;
+    R : out std_logic_vector(length - 1 downto 0)
 
-    );
-END ENTITY;
+  );
+end entity;
 
-ARCHITECTURE rtl OF lab1_part2 IS
+architecture rtl of lab1_part2 is
 
-    SIGNAL op : INTEGER RANGE 0 TO 7 := 0;
-	 
+  signal op : integer range 0 to 7 := 0;
+begin
 
-BEGIN
-  
-  process (A,B,op)
+  process (A, B, op)
 
-    Begin 
-    IF op = 0 THEN
-    R <=  (OTHERS => '0');
-    ELSIF op = 1 THEN
-		R <= A - B;
-    ELSIF op = 2 THEN
-		R <= A + B;
-    ELSIF op = 3 THEN
-		R <= A AND B;
-    ELSIF op = 4 THEN
-		R <= A OR B;
-    ELSIF op = 5 THEN
-		R <= A XOR B;
-    ELSIF op = 6 THEN
-		R <= NOT A;
-    ELSIF op = 7 THEN
-    R <= (OTHERS => '1');
-    ELSE
-    R <= (OTHERS => 'Z');
-    END IF;
-    
-       
-End process ;
-END ARCHITECTURE;
-
-
-
-
+  begin
+    if op = 0 then
+      R <= (others => '0');
+    elsif op = 1 then
+      R <= A - B;
+    elsif op = 2 then
+      R <= A + B;
+    elsif op = 3 then
+      R <= A and B;
+    elsif op = 4 then
+      R <= A or B;
+    elsif op = 5 then
+      R <= A xor B;
+    elsif op = 6 then
+      R <= not A;
+    elsif op = 7 then
+      R <= (others => '1');
+    else
+      R <= (others => 'Z');
+    end if;
+  end process;
+end architecture;

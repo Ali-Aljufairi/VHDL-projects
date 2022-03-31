@@ -40,31 +40,28 @@ BEGIN
         WAIT;
     END PROCESS;
 
-    PROCESS
+   Checkking_vairables :PROCESS
     BEGIN
         wr_en <= '1';
         Change : FOR i IN 0 TO 3 LOOP
-            IF i = 0 THEN
+            Op <= i;
+            IF op = 0 THEN
                 A_ad <= 0;
                 B_ad <= 1;
                 WB_ad <= 2;
-                op <= 0;
-            ELSIF i = 1 THEN
+            ELSIF op = 1 THEN
                 A_ad <= 2;
                 B_ad <= 3;
                 WB_ad <= 3;
-                op <= 1;
 
-            ELSIF i = 2 THEN
+            ELSIF op = 2 THEN
                 A_ad <= 0;
                 B_ad <= 1;
                 WB_ad <= 1;
-                op <= 2;
-            ELSIF i = 3 THEN
+            ELSIF op = 3 THEN
                 A_ad <= 2;
                 B_ad <= 3;
                 WB_ad <= 0;
-                op <= 3;
                 stop_the_clock <= true;
                 WAIT;
             END IF;

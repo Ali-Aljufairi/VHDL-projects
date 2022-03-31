@@ -14,15 +14,11 @@ ENTITY lab2 IS
 END ENTITY;
 
 ARCHITECTURE rtl OF lab2 IS
-     
-   
 
     SIGNAL myreg : reg_array := (OTHERS => (OTHERS => '-'));
-
-
 BEGIN
 
-    PROCESS (clk,wr_en,WB_add,WB) -- process to write to registers            
+    PROCESS (clk, wr_en, WB_add, WB) -- process to write to registers            
     BEGIN
         IF rising_edge(clk) THEN
             IF (wr_en = '1') THEN
@@ -30,8 +26,6 @@ BEGIN
             END IF;
         END IF;
     END PROCESS;
-
-
     PROCESS (clk, A_add, B_add) -- process to read from registers
     BEGIN
         IF rising_edge(clk) THEN
@@ -39,41 +33,5 @@ BEGIN
             B <= myreg(B_add);
         END IF;
     END PROCESS;
-  
+
 END ARCHITECTURE;
-
-
-
-
-
-  
-
-    -- We use  - since we don't care the value of the register first time 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
