@@ -1,96 +1,86 @@
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
+ENTITY seq_counter_moore IS
+  PORT (
+    clk : IN std_logic;
+    ce : IN std_logic;
+    reset : IN std_logic;
+    count : OUT std_logic_vector(1 DOWNTO 0)
 
+  );
+END seq_counter_moore;
+ARCHITECTURE rtl OF seq_counter_moore IS
 
-entity seq_counter_moore is 
-port(
-		clk: in std_logic;
-		ce: in std_logic;
-		reset: in std_logic;
-		count: out std_logic_vector(1 downto 0)
+  ---------signals and state---------------------
+  TYPE state_type IS (s0, s1, s2, s3);
+  SIGNAL state, next_state : state_type := s0;
 
-);
-end seq_counter_moore;
+BEGIN
 
+  -----------register--------------
+  PROCESS (clk)
+  BEGIN
+    IF rising_edge(clk) THEN
+      state <= next_state;
+    END IF;
+  END PROCESS;
 
-architecture rtl of  seq_counter_moore is 
+  ----------next_state-------------
+  PROCESS (state, ce, reset)
+  BEGIN
+    next_state <= s0;
 
----------signals and state---------------------
-type state_type is (s0, s1, s2,s3);
-signal state, next_state: state_type := s0;
+    IF reset = '1' THEN
+      next_state <= s0;
 
-begin 
+    ELSIF state = s0 THEN
+      IF ce = '0' THEN
+        next_state <= s0;
+      ELSIF ce = '1' THEN
+        next_state <= s1;
+      END IF;
 
------------register--------------
-process(clk)
-begin 
-if rising_edge(clk) then 
-	state <= next_state;
-end if;
-end process;
+    ELSIF state = s1 THEN
+      IF ce = '0' THEN
+        next_state <= s1;
+      ELSIF ce = '1' THEN
+        next_state <= s2;
+      END IF;
 
-----------next_state-------------
-process(state,ce, reset)
-begin 
-next_state <= s0;
-	
-	if reset = '1' then
-		next_state <= s0;
-		
-	elsif state = s0 then
-		 if ce= '0' then 
-			next_state <= s0;
-		 elsif ce = '1' then 
-			next_state <= s1;
-		end if;
-		
-	elsif state = s1 then 
-		if ce = '0' then 
-			next_state <= s1;
-		elsif ce ='1'  then 
-			next_state <= s2;
-		end if;
-		
-	elsif state = s2 then 
-		if ce = '0' then 
-			next_state <= s2;
-		elsif ce ='1'  then 
-			next_state <= s3;
-		end if;
-		
-		
-	elsif state = s3 then 
-		if ce = '0' then 
-			next_state <= s3;
-		elsif ce ='1'  then 
-			next_state <= s0;
-		end if;
-	end if ;
-end process;
+    ELSIF state = s2 THEN
+      IF ce = '0' THEN
+        next_state <= s2;
+      ELSIF ce = '1' THEN
+        next_state <= s3;
+      END IF;
+    ELSIF state = s3 THEN
+      IF ce = '0' THEN
+        next_state <= s3;
+      ELSIF ce = '1' THEN
+        next_state <= s0;
+      END IF;
+    END IF;
+  END PROCESS;
 
--------------Output logic-----------------
-process(state)
-begin 
-count <= "00";
-		
-	if state = s0 then 
-		count <= "00";
-		
-	elsif state = s1 then 
-		count <= "11";
-		
-	elsif state = s2 then 
-		count <= "10";
-		
-	elsif state = s3 then 
-		count <= "01";
-		
-	end if;
-end process;
+  -------------Output logic-----------------
+  PROCESS (state)
+  BEGIN
+    count <= "00";
 
-end rtl;
+    IF state = s0 THEN
+      count <= "00";
 
+    ELSIF state = s1 THEN
+      count <= "11";
 
+    ELSIF state = s2 THEN
+      count <= "10";
 
+    ELSIF state = s3 THEN
+      count <= "01";
 
+    END IF;
+  END PROCESS;
+
+END rtl;

@@ -14,7 +14,7 @@ ENTITY lab2_part2 IS
 END ENTITY;
 
 ARCHITECTURE Behavioral OF lab2_part2 IS
- -- ! this declaration is for the signal that is used to control the clock of the processor
+
   -- TensorHDL  description example for the clock signal
   SIGNAL myreg : reg_array := ("11111111", "00000000", "11110000", "00001111");
   SIGNAL A_val, B_val, WB_val : std_logic_vector(7 DOWNTO 0) := (OTHERS => '0');

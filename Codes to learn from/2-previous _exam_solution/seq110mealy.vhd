@@ -1,53 +1,45 @@
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
 
-entity seq_detector is
-port
-	(	clk		  : in std_logic;
-		X		   : in std_logic;
-		Y		  : out std_logic);
-end entity;
+ENTITY seq_detector IS
+  PORT (
+    clk : IN std_logic;
+    X : IN std_logic;
+    Y : OUT std_logic);
+END ENTITY;
 
-architecture rtl of seq_detector is
+ARCHITECTURE rtl OF seq_detector IS
 
-type state_type is (s0, s1, s2);
-Signal state, next_state: state_type :=s0;
+  TYPE state_type IS (s0, s1, s2);
+  SIGNAL state, next_state : state_type := s0;
+BEGIN
 
+  PROCESS (clk)
+  BEGIN
+    IF rising_edge(clk) THEN
+      state <= next_state;
+    END IF;
+  END PROCESS;
 
-begin
-
-process(clk)
-begin
-if rising_edge(clk) then
-state <= next_state;
-end if;
-end process;
-
-fff
-
-
-process(state, x)
-begin
-next_state <= s0;
-y <= '0';
-if state = s0 then
-	if x = '1' then 
-		next_state <= s1;
-	end if;
-elsif state =s1 then
-	if x = '1' then
-		next_state <= s2;
-	end if;
-else
-	if x = '1' then
-		next_state <= s2;
-	else
-		y <= '1';
-	end if;
-end if;
-end process;
-
-
-end rtl;
-
+  PROCESS (state, x)
+  BEGIN
+    next_state <= s0;
+    y <= '0';
+    IF state = s0 THEN
+      IF x = '1' THEN
+        next_state <= s1;
+      END IF;
+    ELSIF state = s1 THEN
+      IF x = '1' THEN
+        next_state <= s2;
+      END IF;
+    ELSE
+      IF x = '1' THEN
+        next_state <= s2;
+      ELSE
+        y <= '1';
+      END IF;
+    END IF;
+  END PROCESS;
+END rtl;
