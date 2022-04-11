@@ -12,7 +12,7 @@ ENTITY seq_counter_moore IS
 END seq_counter_moore;
 ARCHITECTURE rtl OF seq_counter_moore IS
 
-  ---------signals and state---------------------
+  ---------signals and state-------w--------------
   TYPE state_type IS (s0, s1, s2, s3);
   SIGNAL state, next_state : state_type := s0;
 

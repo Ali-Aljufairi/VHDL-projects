@@ -30,7 +30,7 @@ BEGIN
   read : PROCESS (A_ad, B_ad, Clk)
   BEGIN
     IF rising_edge(clk) THEN
-      A_val <= myreg(A_ad); --! This is a description of the signal
+      A_val <= myreg(A_ad); 
       B_val <= myreg(B_ad);
     END IF;
   END PROCESS;

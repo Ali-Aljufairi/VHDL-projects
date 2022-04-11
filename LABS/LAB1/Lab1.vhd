@@ -3,7 +3,7 @@ USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 USE ieee.std_logic_unsigned.ALL;
 USE ieee.std_logic_arith.ALL;
-USE work.ITCE364Project_labs.ALL;
+USE work.ITCE364Project_lab1.ALL;
 
 ENTITY lab1 IS
     PORT (

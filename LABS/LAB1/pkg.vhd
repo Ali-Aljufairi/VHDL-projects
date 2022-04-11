@@ -2,7 +2,7 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
-PACKAGE ITCE364Project_labs IS
+PACKAGE ITCE364Project_lab1 IS
 
     ----------------------Constant------------------------------------
     CONSTANT length : INTEGER := 8;
