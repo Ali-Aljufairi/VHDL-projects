@@ -1,8 +1,6 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
-USE ieee.std_logic_unsigned.ALL;
-USE ieee.std_logic_arith.ALL;
 USE work.ITCE364Project_lab3.ALL;
 
 ENTITY tb_lab3 IS
@@ -10,7 +8,7 @@ END ENTITY;
 
 ARCHITECTURE rtl OF tb_lab3 IS
 
-  COMPONENT lab2_part2
+  COMPONENT lab3
     PORT (
       conin : IN std_logic;
       inbus : IN std_logic_vector(length - 1 DOWNTO 0) := (OTHERS => '0');
@@ -19,23 +17,21 @@ ARCHITECTURE rtl OF tb_lab3 IS
   END COMPONENT;
 
   ---------------- Signal -------------------
-
+  --$ INPUT SIGNAL 
   SIGNAL conin, condition : std_logic := '0';
+  --$ IR Range 
   SIGNAL ir : integer RANGE 0 TO opcode := 0;
+  --$  inbus 
   SIGNAL inbus : std_logic_vector(length - 1 DOWNTO 0) := (OTHERS => '0');
+
+  --$ stop clock siganl 
   SIGNAL stop_the_clock : boolean;
-  SIGNAL Decoder_out : std_logic_vector(length - 1 DOWNTO 0) := ((OTHERS => '0'));
-  SIGNAL g : std_logic_vector(g_length - 1 DOWNTO 0) := ((OTHERS => '0'));
-  SIGNAL brn : std_logic := '0';
-
-  --   SIGNAL A_ad, B_ad, WB_ad : integer RANGE 0 TO address := 0;
+  
 BEGIN
-
-  g(0) <= Decoder_out(1);
 
   ---------------- maping to test bench  -------------------
 
-  uut : lab2_part2 PORT MAP(conin, inbus, ir, condition);
+  uut : lab3 PORT MAP(conin, inbus, ir, condition);
   clocking : PROCESS
   BEGIN
     WHILE NOT stop_the_clock LOOP
@@ -47,9 +43,7 @@ BEGIN
 
   Checkking_vairables : PROCESS
   BEGIN
-
     Change : FOR i IN 0 TO opcode LOOP
-
       IR <= i;
       WAIT FOR clk_period;
       FOR j IN 0 TO length - 1 LOOP
