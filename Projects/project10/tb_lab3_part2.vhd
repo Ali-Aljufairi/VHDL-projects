@@ -11,7 +11,7 @@ ARCHITECTURE rtl OF tb_lab3_part2 IS
   COMPONENT lab3_part2
     PORT (
       clk, ld, decr : IN std_logic; --$ ClK 
-      inbus : IN std_logic_vector(length - 1 DOWNTO 0);
+      inbus : IN std_logic_vector(length - 1 DOWNTO 0) := (OTHERS => '0'); --$ InBus    
       dec_out : OUT std_logic_vector(address DOWNTO 0) := ((OTHERS => '0'));--$ InBus
       n : OUT std_logic := '0');
   END COMPONENT;

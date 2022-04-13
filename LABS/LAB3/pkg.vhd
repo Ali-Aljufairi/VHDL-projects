@@ -11,7 +11,6 @@ PACKAGE ITCE364Project_lab3 IS
   CONSTANT address : integer := 3; -- $ address  
   CONSTANT clk_period : time := 200 ns; --$ Full clock period 
   CONSTANT clk_period_half : time := 100 ns; --$ half of clk_period 
-
   
 
   ----------------------Type----------------------------------------
@@ -20,7 +19,7 @@ PACKAGE ITCE364Project_lab3 IS
   ----------------------Data in rom ------------------------------------
 
   --$  this is the data repsent the decoder rom     
-  CONSTANT rom : rom_type := ( 
+  CONSTANT rom : rom_type := (
     0 => "00000001",
     1 => "00000010",
     2 => "00000100",
@@ -30,16 +29,14 @@ PACKAGE ITCE364Project_lab3 IS
     6 => "01000000",
     7 => "10000000");
   --$ INBUS ROOM  DATA THAT TIS REPSENT IN THE Table
-    CONSTANT inbusrom : rom_type := (
-      0 => "00001000",
-      1 => "00000010",
-      2 => "11110000",
-      3 => "11100000",
-      4 => "11110000",
-      5 => "00001000",
-      6 => "10101010",
-      7 => "10000000");
+  CONSTANT inbusrom : rom_type := (
+    0 => "00001000",
+    1 => "00000010",
+    2 => "11110000",
+    3 => "11100000",
+    4 => "11110000",
+    5 => "00001000",
+    6 => "10101010",
+    7 => "10000000");
   ----------------------Data in register ------------------------------------ 
-
-
 END PACKAGE;
