@@ -8,16 +8,14 @@ PACKAGE ITCE364Project_lab3 IS
   CONSTANT length : integer := 8;--$ length of the data 
   CONSTANT g_length : integer := 5; --$ length of the G Singal
   CONSTANT opcode : integer := 8; -- $ length of the opcode
-  CONSTANT address : integer := 3; -- $ address  
+  CONSTANT address : integer := 4; -- $ address  
   CONSTANT clk_period : time := 200 ns; --$ Full clock period 
   CONSTANT clk_period_half : time := 100 ns; --$ half of clk_period 
-  
-
   ----------------------Type----------------------------------------
   TYPE rom_type IS ARRAY(0 TO 7) OF std_logic_vector(length - 1 DOWNTO 0);
   TYPE reg_array IS ARRAY(address DOWNTO 0) OF std_logic_vector(length - 1 DOWNTO 0);
   ----------------------Data in rom ------------------------------------
-
+  
   --$  this is the data repsent the decoder rom     
   CONSTANT rom : rom_type := (
     0 => "00000001",
