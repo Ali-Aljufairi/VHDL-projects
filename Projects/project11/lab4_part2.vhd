@@ -5,7 +5,7 @@ USE work.ITCE364Project_lab4_part2.ALL;
 
 ENTITY lab4_part2 IS
   PORT (
-    clock1, we, re : IN std_logic := '0'; 
+    clock1, we, re : IN std_logic := '0';
     data : IN std_logic_vector(datasize DOWNTO 0) := (OTHERS => '0'); --$ data  
     write_address, read_address : IN integer RANGE 0 TO address := 0; --$ 5-bit write address input to RAM
     q : OUT std_logic_vector(datasize DOWNTO 0) := (OTHERS => '0')); --$ output from RAM
@@ -16,25 +16,23 @@ ARCHITECTURE rtl OF lab4_part2 IS
   SIGNAL mymem : mem_array := (OTHERS => (OTHERS => '-'));
   SIGNAL re_sig, reg_sig2 : std_logic := '0';
 BEGIN
-
- 
+  re_sig <= re;
 
   Read_process : PROCESS (clock1, read_address, re) --read
   BEGIN
-    IF (rising_edge(clock1)) THEN
-    
+    IF (re_sig = '1') THEN
+      IF rising_edge(clock1) THEN
         q <= mymem(read_address);
-		
-
+        re_sig <= '0';
+      END IF;
     END IF;
   END PROCESS;
-
   write_process : PROCESS (clock1, write_address, we, re) --write
   BEGIN
-    IF (rising_edge(clock1)) THEN
+    IF rising_edge(clock1) THEN
       IF (we = '1') THEN
         mymem(write_address) <= data;
-  
+        re_sig <= '1';
       END IF;
     END IF;
   END PROCESS;

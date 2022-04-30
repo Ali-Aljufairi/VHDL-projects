@@ -13,5 +13,8 @@
 \simulation
 \output_files
 \compiled_partitions
+\_flat
+\root_partition
+\incremnatal_db
     
 
