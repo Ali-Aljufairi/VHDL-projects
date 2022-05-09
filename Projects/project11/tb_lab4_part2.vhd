@@ -17,7 +17,7 @@ ARCHITECTURE rtl OF tb_lab4_part2 IS
   END COMPONENT;
 
   ---------------- Signal -------------------
-  SIGNAL clock1, we,re : std_logic := '0'; -- $ write clock and $Read clock  
+  SIGNAL clock1, we : std_logic := '0'; -- $ write clock and $Read clock  
   SIGNAL data : std_logic_vector(datasize DOWNTO 0) := (OTHERS => '0'); --$ data  
   SIGNAL write_address, read_address : integer RANGE 0 TO address := 0; --$ 5-bit write address input to RAM
   SIGNAL q : std_logic_vector(datasize DOWNTO 0) := (OTHERS => '0'); --$ output from RAM
@@ -51,13 +51,10 @@ BEGIN
         WAIT FOR clk_period;
       END LOOP;
       data_in_sig <= data_in_sig - 1;
-
       write_address <= i + 1;
       read_address <= i + 1;
-
     END LOOP;
     we <= '0';
-
     WAIT FOR clk_period;
     stop_the_clock <= true;
     WAIT;
