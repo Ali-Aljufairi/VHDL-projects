@@ -12,7 +12,7 @@ ENTITY ram IS
 END ENTITY ram;
 ARCHITECTURE syncrama OF ram IS
 	-- 2^20 = 1048576
-TYPE ram_type IS ARRAY(0 TO 1048576) OF std_logic_vector(15 DOWNTO 0);
+TYPE ram_type IS ARRAY(0 TO 5000) OF std_logic_vector(15 DOWNTO 0);
 SIGNAL ram : ram_type ;
 BEGIN
 		PROCESS(clk) IS

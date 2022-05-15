@@ -18,6 +18,7 @@ end entity;
 
 Architecture alu_arch of alu is
 Component partA is
+	GENERIC (n : integer := 16);
 port(
 		a : in std_logic_vector(n-1 downto 0);
 		op_code : in std_logic_vector (2 downto 0);
@@ -30,6 +31,7 @@ port(
 end Component;
 
 Component partB is
+	GENERIC (n : integer := 16);
 port(
 		a,b : in std_logic_vector(n-1 downto 0);
 		op_code : in std_logic_vector (2 downto 0);

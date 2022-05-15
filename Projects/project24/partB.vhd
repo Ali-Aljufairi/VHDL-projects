@@ -18,6 +18,7 @@ end entity;
 architecture partB_Arch of partB is
 
 Component n_adder  IS
+GENERIC (n : integer := 16);
 PORT (
 a,b : IN  std_logic_vector(n-1 downto 0);
 cin : IN std_logic;
