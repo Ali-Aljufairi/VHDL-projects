@@ -13,7 +13,7 @@ end Entity;
 ARCHITECTURE load_suse_case_flush_stalling_structure of load_suse_case_flush_stalling is
 begin
 
-PROCESS (CLK)
+PROCESS (CLK,rst)
 begin
 if rst='0' then
 
@@ -33,10 +33,6 @@ End if;
 END IF;
 
 END PROCESS;
-
-
-
-
 
 
 

@@ -1,20 +1,16 @@
-Library ieee;
-use ieee.std_logic_1164.all;
-Entity check is
-port(
-load_use_case,signal1,signal2:in std_logic;
-signal_out:out std_logic
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+ENTITY check IS
+  PORT (
+    load_use_case, signal1, signal2 : IN std_logic;
+    signal_out : OUT std_logic
 
-);
-end entity;
+  );
+END ENTITY;
 
-ARCHITECTURE check_structure of check is
-begin
-signal_out<= '0'when load_use_case='1' else
-signal1;
+ARCHITECTURE check_structure OF check IS
+BEGIN
+  signal_out <= '0'WHEN load_use_case = '1' ELSE
+    signal1;
 
-
-
-
-
-end check_structure;
+END ARCHITECTURE;

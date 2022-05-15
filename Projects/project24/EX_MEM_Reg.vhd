@@ -53,7 +53,7 @@ END EX_MEM_Reg;
 
 ARCHITECTURE ExMemReg of EX_MEM_Reg IS
 BEGIN
-	PROCESS (clk, rst) IS
+	PROCESS (clk, rst,en) IS
 	BEGIN
 		IF (rst = '1') THEN
 			INDATA_M <= (others=>'0');

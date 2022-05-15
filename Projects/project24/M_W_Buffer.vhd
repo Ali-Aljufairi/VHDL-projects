@@ -35,7 +35,7 @@ END ENTITY;
 
 ARCHITECTURE M_W_Buffer_Arch of M_W_Buffer IS
 BEGIN
-	PROCESS (clk, rst) IS
+	PROCESS (clk, rst,en) IS
 	BEGIN
 		IF (rst = '1') THEN
 			INDATA_W <= (others=>'0');

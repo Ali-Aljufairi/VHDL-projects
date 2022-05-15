@@ -32,7 +32,7 @@ begin
 b1<=not b WHEN (op_code="100") ELSE b;
 cin<='1' WHEN (op_code="100") ELSE '0';
 u0: n_adder GENERIC MAP(n) PORT MAP(a,b1,cin,res,cout);
-		process(alu_en,op_code,a,b,res)
+		process(alu_en,op_code,a,b,res,cout)
 		begin
 			if(alu_en='1') then
 				case op_code is
