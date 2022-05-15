@@ -1,32 +1,29 @@
 LIBRARY IEEE;
-USE IEEE.std_logic_1164.all;
+USE IEEE.std_logic_1164.ALL;
 
 ENTITY n_adder IS
-GENERIC (n : integer := 16);
+  GENERIC (n : integer := 16);
 
-PORT (
-A,B : IN  std_logic_vector(n-1 downto 0);
-CIN : IN std_logic;
-F : OUT std_logic_vector(n-1 downto 0);
-COUT: OUT std_logic 
-);
-END n_adder;
+  PORT (
+    A, B : IN std_logic_vector(n - 1 DOWNTO 0);
+    CIN : IN std_logic;
+    F : OUT std_logic_vector(n - 1 DOWNTO 0);
+    COUT : OUT std_logic);
+END ENTITY;
 
 ARCHITECTURE nAdder OF n_adder IS
 
-COMPONENT adder IS
-PORT(
-a,b,cin : IN std_logic;
-f,cout : OUT std_logic
-);
-END COMPONENT;
-SIGNAL temp : std_logic_vector(n downto 0);
-
-
+  COMPONENT adder IS
+    PORT (
+      a, b, cin : IN std_logic;
+      f, cout : OUT std_logic
+    );
+  END COMPONENT;
+  SIGNAL temp : std_logic_vector(n DOWNTO 0);
 BEGIN
-temp(0)<=CIN;
-loop1: FOR i IN 0 TO n-1 GENERATE
-fx: adder PORT MAP(A(i),B(i),temp(i),F(i),temp(i+1));
-END GENERATE;
-COUT<=temp(n);
-END nAdder;
+  temp(0) <= CIN;
+  loop1 : FOR i IN 0 TO n - 1 GENERATE
+    fx : adder PORT MAP(A(i), B(i), temp(i), F(i), temp(i + 1));
+  END GENERATE;
+  COUT <= temp(n);
+END ARCHITECTURE;

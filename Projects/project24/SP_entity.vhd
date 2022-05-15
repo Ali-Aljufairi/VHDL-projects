@@ -8,7 +8,7 @@ ENTITY SP_entity IS
         datain : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
         dataout : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
     );
-END SP_entity;
+END ENTITY;
 ARCHITECTURE SP_instance OF SP_entity IS
 BEGIN
     PROCESS (clk, rst) IS

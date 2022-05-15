@@ -1,79 +1,79 @@
-Library IEEE;
-use IEEE.STD_LOGIC_1164.all;
-use IEEE.STD_LOGIC_ARITH.all;
-use IEEE.STD_LOGIC_UNSIGNED.all;
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_ARITH.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-entity partA is 
-	GENERIC (n : integer := 16);
-	port(
-		a : in std_logic_vector(n-1 downto 0);
-		op_code : in std_logic_vector (2 downto 0);
-		f : out std_logic_vector(n-1 downto 0);
-		c_flag,z_flag,n_flag : inout std_logic;
-		c_flag_en,z_flag_en,n_flag_en: in std_logic;
-		alu_en: in std_logic
-	);
-end entity;
+ENTITY partA IS
+  GENERIC (n : integer := 16);
+  PORT (
+    a : IN std_logic_vector(n - 1 DOWNTO 0);
+    op_code : IN std_logic_vector (2 DOWNTO 0);
+    f : OUT std_logic_vector(n - 1 DOWNTO 0);
+    c_flag, z_flag, n_flag : INOUT std_logic;
+    c_flag_en, z_flag_en, n_flag_en : IN std_logic;
+    alu_en : IN std_logic
+  );
+END ENTITY;
 
-architecture partA_Arch of partA is
-	signal temp: std_logic_vector(n downto 0);
-	begin
-		process(alu_en,op_code,a)
-		begin
-			if(alu_en='1') then
-				case op_code is
-					when "000" =>
-					NULL;
-	 				when "001" =>
- 					temp <= '0' & not a;
- 					when "010" =>
- 					temp <= '0' & a + 1;
- 					when "011" =>
- 					temp <= '0' & a;
- 					when others => NULL;
-				end case;
-			else null;
-			end if;
-		end process;
+ARCHITECTURE partA_Arch OF partA IS
+  SIGNAL temp : std_logic_vector(n DOWNTO 0);
+BEGIN
+  PROCESS (alu_en, op_code, a)
+  BEGIN
+    IF (alu_en = '1') THEN
+      CASE op_code IS
+        WHEN "000" =>
+          NULL;
+        WHEN "001" =>
+          temp <= '0' & NOT a;
+        WHEN "010" =>
+          temp <= '0' & a + 1;
+        WHEN "011" =>
+          temp <= '0' & a;
+        WHEN OTHERS => NULL;
+      END CASE;
+    ELSE NULL;
+    END IF;
+  END PROCESS;
 
-		process(alu_en,op_code,a,c_flag_en,temp)
-		begin
-			if(alu_en='1') and (c_flag_en='1') then
-				if(op_code="010") then
-					c_flag<=temp(n);
-				else null;
-				end if;
-			else null;
-			end if;
-		end process;
+  PROCESS (alu_en, op_code, a, c_flag_en, temp)
+  BEGIN
+    IF (alu_en = '1') AND (c_flag_en = '1') THEN
+      IF (op_code = "010") THEN
+        c_flag <= temp(n);
+      ELSE NULL;
+      END IF;
+    ELSE NULL;
+    END IF;
+  END PROCESS;
 
-		process(alu_en,op_code,a,z_flag_en,temp)
-		begin
-			if(alu_en='1') and (z_flag_en='1') then
-				if (temp(n-1 downto 0) = (temp(n-1 downto 0)'range => '0')) then
-					z_flag<='1';
-				else z_flag<='0';
-				end if;
-			else null;
-			end if;
-		end process;
+  PROCESS (alu_en, op_code, a, z_flag_en, temp)
+  BEGIN
+    IF (alu_en = '1') AND (z_flag_en = '1') THEN
+      IF (temp(n - 1 DOWNTO 0) = (temp(n - 1 DOWNTO 0)'RANGE => '0')) THEN
+        z_flag <= '1';
+      ELSE z_flag <= '0';
+      END IF;
+    ELSE NULL;
+    END IF;
+  END PROCESS;
 
-		process(alu_en,op_code,a,n_flag_en,temp)
-		begin
-			if(alu_en='1') and (n_flag_en='1') then
-				if (temp(n-1)='1') then
-					n_flag<='1';
-				else n_flag<='0';
-				end if;
-			else null;
-			end if;
-		end process;
-		process(alu_en,temp)
-		begin
-		if(alu_en='1') then
-		f<=temp(n-1 downto 0);
-		else null;
-		end if;
-		end process;
+  PROCESS (alu_en, op_code, a, n_flag_en, temp)
+  BEGIN
+    IF (alu_en = '1') AND (n_flag_en = '1') THEN
+      IF (temp(n - 1) = '1') THEN
+        n_flag <= '1';
+      ELSE n_flag <= '0';
+      END IF;
+    ELSE NULL;
+    END IF;
+  END PROCESS;
+  PROCESS (alu_en, temp)
+  BEGIN
+    IF (alu_en = '1') THEN
+      f <= temp(n - 1 DOWNTO 0);
+    ELSE NULL;
+    END IF;
+  END PROCESS;
 
-end architecture;
+END ARCHITECTURE;

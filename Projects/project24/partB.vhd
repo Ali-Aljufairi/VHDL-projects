@@ -1,93 +1,93 @@
-Library IEEE;
-use IEEE.STD_LOGIC_1164.all;
-use IEEE.STD_LOGIC_ARITH.all;
-use IEEE.STD_LOGIC_UNSIGNED.all;
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_ARITH.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-entity partB is 
-	GENERIC (n : integer := 16);
-	port(
-		a,b : in std_logic_vector(n-1 downto 0);
-		op_code : in std_logic_vector (2 downto 0);
-		f : out std_logic_vector(n-1 downto 0);
-		c_flag,z_flag,n_flag : inout std_logic;
-		c_flag_en,z_flag_en,n_flag_en: in std_logic;
-		alu_en: in std_logic
-	);
-end entity;
+ENTITY partB IS
+  GENERIC (n : integer := 16);
+  PORT (
+    a, b : IN std_logic_vector(n - 1 DOWNTO 0);
+    op_code : IN std_logic_vector (2 DOWNTO 0);
+    f : OUT std_logic_vector(n - 1 DOWNTO 0);
+    c_flag, z_flag, n_flag : INOUT std_logic;
+    c_flag_en, z_flag_en, n_flag_en : IN std_logic;
+    alu_en : IN std_logic
+  );
+END ENTITY;
 
-architecture partB_Arch of partB is
+ARCHITECTURE partB_Arch OF partB IS
 
-Component n_adder  IS
-GENERIC (n : integer := 16);
-PORT (
-a,b : IN  std_logic_vector(n-1 downto 0);
-cin : IN std_logic;
-f : OUT std_logic_vector(n-1 downto 0);
-cout: OUT std_logic 
-);
-end Component;
-signal temp,res,b1: std_logic_vector(n-1 downto 0);
-signal cout,cin: std_logic;
-begin
-b1<=not b WHEN (op_code="100") ELSE b;
-cin<='1' WHEN (op_code="100") ELSE '0';
-u0: n_adder GENERIC MAP(n) PORT MAP(a,b1,cin,res,cout);
-		process(alu_en,op_code,a,b,res,cout)
-		begin
-			if(alu_en='1') then
-				case op_code is
-	 				when "100" =>
-					temp<=res;
- 					when "101" =>
- 					temp<= a and b;
- 					when "110" =>
-					temp<=res;
- 					when others => NULL;
-				end case;
-			else null;
-			end if;
-		end process;
+  COMPONENT n_adder IS
+    GENERIC (n : integer := 16);
+    PORT (
+      a, b : IN std_logic_vector(n - 1 DOWNTO 0);
+      cin : IN std_logic;
+      f : OUT std_logic_vector(n - 1 DOWNTO 0);
+      cout : OUT std_logic
+    );
+  END COMPONENT;
+  SIGNAL temp, res, b1 : std_logic_vector(n - 1 DOWNTO 0);
+  SIGNAL cout, cin : std_logic;
+BEGIN
+  b1 <= NOT b WHEN (op_code = "100") ELSE b;
+  cin <= '1' WHEN (op_code = "100") ELSE '0';
+  u0 : n_adder GENERIC MAP(n) PORT MAP(a, b1, cin, res, cout);
+  PROCESS (alu_en, op_code, a, b, res, cout)
+  BEGIN
+    IF (alu_en = '1') THEN
+      CASE op_code IS
+        WHEN "100" =>
+          temp <= res;
+        WHEN "101" =>
+          temp <= a AND b;
+        WHEN "110" =>
+          temp <= res;
+        WHEN OTHERS => NULL;
+      END CASE;
+    ELSE NULL;
+    END IF;
+  END PROCESS;
 
-		process(alu_en,op_code,a,b,c_flag_en,temp)
-		begin
-			if(alu_en='1') and (c_flag_en='1') then
-				if(op_code="111")  then
-					c_flag<='1';
-				elsif(op_code="100") or(op_code="110")  then
-					c_flag<=cout;
-				else null;
-				end if;
-			else null;
-			end if;
-		end process;
+  PROCESS (alu_en, op_code, a, b, c_flag_en, temp,cout)
+  BEGIN
+    IF (alu_en = '1') AND (c_flag_en = '1') THEN
+      IF (op_code = "111") THEN
+        c_flag <= '1';
+      ELSIF (op_code = "100") OR(op_code = "110") THEN
+        c_flag <= cout;
+      ELSE NULL;
+      END IF;
+    ELSE NULL;
+    END IF;
+  END PROCESS;
 
-		process(alu_en,op_code,a,b,z_flag_en,temp)
-		begin
-			if(alu_en='1') and (z_flag_en='1') then
-			if (temp(n-1 downto 0) = (temp(n-1 downto 0)'range => '0')) then
-					z_flag<='1';
-				else z_flag<='0';
-				end if;
-			else null;
-			end if;
-		end process;
+  PROCESS (alu_en, op_code, a, b, z_flag_en, temp)
+  BEGIN
+    IF (alu_en = '1') AND (z_flag_en = '1') THEN
+      IF (temp(n - 1 DOWNTO 0) = (temp(n - 1 DOWNTO 0)'RANGE => '0')) THEN
+        z_flag <= '1';
+      ELSE z_flag <= '0';
+      END IF;
+    ELSE NULL;
+    END IF;
+  END PROCESS;
 
-		process(alu_en,op_code,a,b,n_flag_en,temp)
-		begin
-			if(alu_en='1') and (n_flag_en='1') then
-				if (temp(n-1)='1') then
-					n_flag<='1';
-				else n_flag<='0';
-				end if;
-			else null;
-			end if;
-		end process;
-		process(alu_en,temp)
-		begin
-		if(alu_en='1') then
-		f<=temp(n-1 downto 0);
-		else null;
-		end if;
-		end process;
+  PROCESS (alu_en, op_code, a, b, n_flag_en, temp)
+  BEGIN
+    IF (alu_en = '1') AND (n_flag_en = '1') THEN
+      IF (temp(n - 1) = '1') THEN
+        n_flag <= '1';
+      ELSE n_flag <= '0';
+      END IF;
+    ELSE NULL;
+    END IF;
+  END PROCESS;
+  PROCESS (alu_en, temp)
+  BEGIN
+    IF (alu_en = '1') THEN
+      f <= temp(n - 1 DOWNTO 0);
+    ELSE NULL;
+    END IF;
+  END PROCESS;
 
-end architecture;
+END ARCHITECTURE;
