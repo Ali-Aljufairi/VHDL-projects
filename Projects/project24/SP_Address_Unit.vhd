@@ -16,7 +16,7 @@ ENTITY SP_Address_Unit IS
     SP_used_Address : OUT std_logic_vector(31 DOWNTO 0); --address used to access memory
     exception2 : OUT std_logic
   );
-END ENTITY ;
+END ENTITY;
 
 ARCHITECTURE instance OF SP_Address_Unit IS
   SIGNAL newSP : std_logic_vector(31 DOWNTO 0);
@@ -35,7 +35,7 @@ BEGIN
         ) THEN
         exception2 <= '1';
       ELSE
-        exception2 <= '0'; 
+        exception2 <= '0';
       END IF;
     END IF;
   END PROCESS;

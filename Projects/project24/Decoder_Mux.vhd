@@ -10,7 +10,7 @@ sel:in std_logic
 );
 end Entity;
 
-ARCHITECTURE Structure OF Decoder_Mux IS
+ARCHITECTURE rtl OF Decoder_Mux IS
 
 begin
 Data_out <= Data_in1 WHEN sel = '0' ELSE
@@ -18,5 +18,5 @@ Data_out <= Data_in1 WHEN sel = '0' ELSE
 
 
 
-end Structure;
+end ARCHITECTURE;
 

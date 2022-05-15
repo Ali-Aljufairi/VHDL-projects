@@ -8,7 +8,7 @@ ENTITY adder IS
     f, cout : OUT std_logic);
 END ENTITY;
 
-ARCHITECTURE modelAdder OF adder IS
+ARCHITECTURE rtl OF adder IS
   SIGNAL x1 : std_logic;
 BEGIN
   x1 <= a XOR b;

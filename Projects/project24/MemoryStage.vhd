@@ -27,7 +27,7 @@ ENTITY MemoryStage IS
   );
 END ENTITY;
 
-ARCHITECTURE instance OF MemoryStage IS
+ARCHITECTURE rtl OF MemoryStage IS
 
   SIGNAL SP_used_Address : std_logic_vector(31 DOWNTO 0);
   SIGNAL memo_datain : std_logic_vector(31 DOWNTO 0);

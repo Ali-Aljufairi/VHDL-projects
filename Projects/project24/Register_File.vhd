@@ -53,6 +53,7 @@ BEGIN
     ELSE q6 WHEN Read_Address_1 = "110"
     ELSE q7 WHEN Read_Address_1 = "111";
   Src2_data <= q0 WHEN Read_Address_2 = "000"
+  
     ELSE q1 WHEN Read_Address_2 = "001"
     ELSE q2 WHEN Read_Address_2 = "010"
     ELSE q3 WHEN Read_Address_2 = "011"
@@ -60,5 +61,5 @@ BEGIN
     ELSE q5 WHEN Read_Address_2 = "101"
     ELSE q6 WHEN Read_Address_2 = "110"
     ELSE q7 WHEN Read_Address_2 = "111";
- 
+
 END ARCHITECTURE;

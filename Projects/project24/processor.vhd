@@ -9,7 +9,7 @@ ENTITY processor IS
     OUTPORT : OUT std_logic_vector(15 DOWNTO 0)
   );
 
-END processor;
+END ENTITY;
 
 ARCHITECTURE processor1 OF processor IS
   --  ########################## FETCH STAGE SIGNALS DEFINITION #####################
@@ -544,4 +544,4 @@ BEGIN
   check_F_D_En : ENTITY work.check PORT MAP(load_use_case_out, '1', F_D_en_stall, f_D_en);
   check_D_E_En : ENTITY work.check PORT MAP(load_use_case_out, '1', D_E_en_stall, D_E_en);
 
-END processor1;
+END ARCHITECTURE;

@@ -9,8 +9,8 @@ ENTITY ForwardingUnit IS
     DeEX_srcAddress1, DeEX_srcAddress2 : IN std_logic_vector(2 DOWNTO 0);
     src1Selectors, src2Selectors : OUT std_logic_vector(1 DOWNTO 0)
   );
-END ForwardingUnit;
-ARCHITECTURE FUnit OF ForwardingUnit IS
+END ENTITY;
+ARCHITECTURE rtl OF ForwardingUnit IS
 
 BEGIN
   src1Selectors <= "10" WHEN (DeEX_srcAddress1 = EXMem_destAddress)
@@ -25,4 +25,4 @@ BEGIN
     AND(MemWB_WtiteBack = '1') ELSE
     "00";
 
-END FUnit;
+END ARCHITECTURE;

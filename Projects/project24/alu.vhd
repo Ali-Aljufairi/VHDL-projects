@@ -16,7 +16,7 @@ ENTITY alu IS
 
 END ENTITY;
 
-ARCHITECTURE alu_arch OF alu IS
+ARCHITECTURE rtl OF alu IS
   COMPONENT partA IS
     GENERIC (n : integer := 16);
     PORT (

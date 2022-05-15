@@ -18,7 +18,7 @@ ENTITY memo_address_mux IS
   );
 END ENTITY memo_address_mux;
 
-ARCHITECTURE instance OF memo_address_mux IS
+ARCHITECTURE rtl OF memo_address_mux IS
 
 BEGIN
   PROCESS (clk, rst)IS

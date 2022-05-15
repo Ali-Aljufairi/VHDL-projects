@@ -1,25 +1,26 @@
 LIBRARY IEEE;
-USE IEEE.std_logic_1164.all;
+USE IEEE.std_logic_1164.ALL;
 
-ENTITY r_Register is
-port(Clk,Rst,enable:in std_logic;
-d:in std_logic_vector(15 downto 0 );
-q:out std_logic_vector(15 downto 0)
-);
-end  ENTITY;
+ENTITY r_Register IS
+  PORT (
+    Clk, Rst, enable : IN std_logic;
+    d : IN std_logic_vector(15 DOWNTO 0);
+    q : OUT std_logic_vector(15 DOWNTO 0)
+  );
+END ENTITY;
 
-ARCHITECTURE Register_Structal of r_Register
-is
-begin
-PROCESS (Clk,Rst)
-begin
+ARCHITECTURE Register_Structal OF r_Register
+  IS
+BEGIN
+  PROCESS (Clk, Rst)
+  BEGIN
 
-IF Rst='1' THEN
-q<=(OTHERS =>'0'); 
-ELSIF falling_edge(Clk) and enable='1'  THEN
-q <= d;
-END IF;
+    IF Rst = '1' THEN
+      q <= (OTHERS => '0');
+    ELSIF falling_edge(Clk) AND enable = '1' THEN
+      q <= d;
+    END IF;
 
-END PROCESS;
+  END PROCESS;
 
-END Register_Structal;
+END ARCHITECTURE;

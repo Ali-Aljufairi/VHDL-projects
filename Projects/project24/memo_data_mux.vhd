@@ -12,7 +12,7 @@ ENTITY memo_data_mux IS
     PC : IN std_logic_vector(31 DOWNTO 0);
     mem_datain : OUT std_logic_vector(31 DOWNTO 0)
   );
-END ENTITY memo_data_mux;
+END ENTITY ;
 
 ARCHITECTURE instance OF memo_data_mux IS
 
@@ -26,4 +26,4 @@ BEGIN
     std_logic_vector(unsigned(PC) + 2)
     ;
 
-END instance;
+END ARCHITECTURE;

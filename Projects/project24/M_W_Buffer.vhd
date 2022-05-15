@@ -16,7 +16,6 @@ ENTITY M_W_Buffer IS
     Call_flag_M, INT_flag_M,
     RTI_flag_M : IN std_logic;
     final_writeData_M : IN std_logic_vector(15 DOWNTO 0);
-
     INDATA_W : OUT std_logic_vector(15 DOWNTO 0);
     PC_W : OUT std_logic_vector(31 DOWNTO 0);
     offset_W : OUT std_logic_vector(15 DOWNTO 0);
@@ -31,7 +30,7 @@ ENTITY M_W_Buffer IS
     RTI_flag_W : OUT std_logic
   );
 END ENTITY;
-ARCHITECTURE M_W_Buffer_Arch OF M_W_Buffer IS
+ARCHITECTURE rtl OF M_W_Buffer IS
 BEGIN
   PROCESS (clk, rst, en) IS
   BEGIN
