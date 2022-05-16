@@ -7,11 +7,6 @@ PACKAGE ITCE364Project IS
  CONSTANT opcodesize : integer := 15;
  CONSTANT width_size : integer := 31; 
 
-
-
-
-
-
   ------------------ Ram Type ------------------  
   TYPE ram_type IS ARRAY(0 TO 5000) OF std_logic_vector(15 DOWNTO 0);
   --------------------OP CODES--------------------

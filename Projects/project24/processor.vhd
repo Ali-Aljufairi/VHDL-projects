@@ -1,6 +1,8 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
+USE work.ITCE364project.ALL;
+
 ENTITY processor IS
   PORT (
     rst : IN std_logic;
@@ -256,17 +258,17 @@ ARCHITECTURE processor1 OF processor IS
   -- wires to hold RET flag signal
   SIGNAL RET_flag_E_M : std_logic;
   -- wires to hold memory output 
-  SIGNAL Mem_res : std_logic_vector(31 DOWNTO 0);
+  SIGNAL Mem_res : std_logic_vector(width_size DOWNTO 0);
   -- wire to hold final data to be written
   SIGNAL final_write_data : std_logic_vector(15 DOWNTO 0);
   -- wire to hold memory input
-  SIGNAL Mem_in : std_logic_vector(31 DOWNTO 0);
+  SIGNAL Mem_in : std_logic_vector(width_size DOWNTO 0);
   -- wire to hold memory address
-  SIGNAL Mem_Addr : std_logic_vector(31 DOWNTO 0);
+  SIGNAL Mem_Addr : std_logic_vector(width_size DOWNTO 0);
   -- wire to hold exception flag
   SIGNAL exception_flag : std_logic;
   -- value of instruction address where the exception happened
-  SIGNAL ExceptionPC : std_logic_vector(31 DOWNTO 0);
+  SIGNAL ExceptionPC : std_logic_vector(width_size DOWNTO 0);
   -- wire to indicate exceptions
   SIGNAL exception_one, exception_two : std_logic;
   -- wire to indicate flushing Execute/Memory buffer
@@ -275,7 +277,7 @@ ARCHITECTURE processor1 OF processor IS
 
   --########################## WRITE-BACK STAGE SIGNALS DEFINITION ###########################
   -- wires to hold pc value
-  SIGNAL PC_M_W : std_logic_vector(31 DOWNTO 0);
+  SIGNAL PC_M_W : std_logic_vector(width_size DOWNTO 0);
   -- wires to hold pc enable value
   SIGNAL PC_en_M_W : std_logic;
   -- wires to hold offset value

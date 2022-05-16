@@ -1,16 +1,18 @@
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.numeric_std.ALL;
+USE work.ITCE364project.ALL;
+
 ENTITY PC_INCREMENT IS
   PORT (
-    old_PC : IN std_logic_vector(31 DOWNTO 0);
+    old_PC : IN std_logic_vector(width_size DOWNTO 0);
     selector : IN std_logic;
-    new_PC : OUT std_logic_vector(31 DOWNTO 0)
+    new_PC : OUT std_logic_vector(width_size DOWNTO 0)
   );
-END PC_INCREMENT;
+END ENTITY;
 
-ARCHITECTURE PC_increment OF PC_INCREMENT IS
+ARCHITECTURE rtl OF PC_INCREMENT IS
 BEGIN
   new_PC <= std_logic_vector(unsigned(old_PC) + 1) WHEN selector = '0'
     ELSE std_logic_vector(unsigned(old_PC) + 2);
-END PC_increment;
+END ARCHITECTURE;
