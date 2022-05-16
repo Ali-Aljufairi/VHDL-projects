@@ -1,11 +1,12 @@
 library ieee;
 use ieee.std_logic_1164.all;
+USE work.ITCE364project.ALL;
 
 ENTITY Decoder_Mux IS
 
 port(
-Data_in1,Data_in2: in std_logic_vector(15 downto 0);
-Data_out:out std_logic_vector (15 downto 0);
+Data_in1,Data_in2: in std_logic_vector(opcodesize downto 0);
+Data_out:out std_logic_vector (opcodesize downto 0);
 sel:in std_logic
 );
 end Entity;

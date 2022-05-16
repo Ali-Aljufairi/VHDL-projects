@@ -1,6 +1,7 @@
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.numeric_std.ALL;
+USE work.ITCE364project.ALL;
 
 ENTITY memo_address_mux IS
   PORT (
@@ -11,7 +12,7 @@ ENTITY memo_address_mux IS
     SP_en : IN std_logic;
     exception2 : IN std_logic;
     SP_used_Address : IN std_logic_vector(31 DOWNTO 0);
-    ALU_res : IN std_logic_vector(15 DOWNTO 0);
+    ALU_res : IN std_logic_vector(opcodesize DOWNTO 0);
 
     memo_address : OUT std_logic_vector(31 DOWNTO 0);
     exception1 : OUT std_logic

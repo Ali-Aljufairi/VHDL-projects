@@ -1,6 +1,7 @@
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.numeric_std.ALL;
+USE work.ITCE364project.ALL;
 
 ENTITY MemoryStage IS
   PORT (
@@ -18,9 +19,9 @@ ENTITY MemoryStage IS
     MW, -- we
     MR -- re
     : IN std_logic;
-    Rsrc1 : IN std_logic_vector(15 DOWNTO 0);
+    Rsrc1 : IN std_logic_vector(opcodesize DOWNTO 0);
     PC : IN std_logic_vector(31 DOWNTO 0);
-    ALU_res : IN std_logic_vector(15 DOWNTO 0);
+    ALU_res : IN std_logic_vector(opcodesize DOWNTO 0);
     exception1 : OUT std_logic;
     exception2 : OUT std_logic;
     dataout : OUT std_logic_vector(31 DOWNTO 0)

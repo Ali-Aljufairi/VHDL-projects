@@ -1,5 +1,6 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
+USE work.ITCE364project.ALL;
 ENTITY MUX_1_2 IS
   GENERIC (n : integer := 32);
   PORT (

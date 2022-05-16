@@ -1,12 +1,14 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
+USE work.ITCE364project.ALL;
+
 ENTITY JMP_DETECT IS
   PORT (
     branch_en, call_en : IN std_logic;
     op_code : IN std_logic_vector(2 DOWNTO 0);
     c_flag, z_flag, n_flag : IN std_logic;
     jc, jz, jn : OUT std_logic;
-    address : IN std_logic_vector(15 DOWNTO 0);
+    address : IN std_logic_vector(opcodesize DOWNTO 0);
     PC : OUT std_logic_vector (31 DOWNTO 0);
     jmp : OUT std_logic
   );

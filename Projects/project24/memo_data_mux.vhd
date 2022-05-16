@@ -1,14 +1,15 @@
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.numeric_std.ALL;
+USE work.ITCE364project.ALL;
 
 ENTITY memo_data_mux IS
   PORT (
     SP_en : IN std_logic;
     PUSH_i : IN std_logic;
     STD_i : IN std_logic;
-    Rsrc1 : IN std_logic_vector(15 DOWNTO 0);
-    ALU_res : IN std_logic_vector(15 DOWNTO 0);
+    Rsrc1 : IN std_logic_vector( opcodesize DOWNTO 0);
+    ALU_res : IN std_logic_vector(opcodesize DOWNTO 0);
     PC : IN std_logic_vector(31 DOWNTO 0);
     mem_datain : OUT std_logic_vector(31 DOWNTO 0)
   );

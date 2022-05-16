@@ -12,7 +12,7 @@ END ENTITY;
 ARCHITECTURE Register_Structal OF r_Register
   IS
 BEGIN
-  PROCESS (Clk, Rst)
+  PROCESS (Clk, Rst,enable)
   BEGIN
 
     IF Rst = '1' THEN
