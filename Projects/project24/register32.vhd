@@ -11,8 +11,10 @@ ARCHITECTURE reg OF REG IS
 BEGIN
   PROCESS (clk) IS
   BEGIN
-    IF (rising_edge(clk) AND en = '1') THEN
-      dataout <= datain;
+    IF rising_edge(clk) THEN
+      IF en = '1' THEN
+        dataout <= datain;
+      END IF;
     END IF;
   END PROCESS;
 END ARCHITECTURE;
