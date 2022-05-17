@@ -44,7 +44,7 @@ ENTITY control_unit IS
 
     JMP_op : OUT std_logic_vector(2 DOWNTO 0)
   );
-END ENTITY control_unit;
+END ENTITY ;
 
 ARCHITECTURE rtl OF control_unit IS
 BEGIN
@@ -120,7 +120,7 @@ BEGIN
     opCode = opIADD OR
     opCode = opLDM OR
     opCode = opLDD OR
-    opCode = opPOP -- ???
+    opCode = opPOP 
     ELSE
     '0';
 
@@ -128,13 +128,13 @@ BEGIN
     opCode = opPUSH OR
     opCode = opPOP OR
     opCode = opCALL OR
-    opCode = opINT OR --????
-    opCode = opRET OR --???
-    opCode = opRTI --???
+    opCode = opINT OR 
+    opCode = opRET OR 
+    opCode = opRTI 
     ELSE
     '0';
 
-  SP_op <= '0'; --????????
+  SP_op <= '0'; 
 
   PC_en <= '0' WHEN
     opCode = opHLT 
@@ -255,8 +255,8 @@ BEGIN
     ELSE
     (OTHERS => '0');
 
-  MEM_REG <= '1' WHEN --???
-    -- opCode = opLDM OR
+  MEM_REG <= '1' WHEN 
+    
     opCode = opLDD OR
     opCode = opPOP
     ELSE

@@ -3,12 +3,13 @@ USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
 PACKAGE ITCE364Project IS
 
- ---------------------Constant Declarations---------------------
- CONSTANT opcodesize : integer := 15;
- CONSTANT width_size : integer := 31; 
+  ---------------------Constant Declarations---------------------
+  CONSTANT opcodesize : integer := 15;
+  CONSTANT width_size : integer := 31;
+  CONSTANT ramSize : integer := 2500;
 
   ------------------ Ram Type ------------------  
-  TYPE ram_type IS ARRAY(0 TO 5000) OF std_logic_vector(15 DOWNTO 0);
+  TYPE ram_type IS ARRAY(0 TO ramSize ) OF std_logic_vector(opcodesize DOWNTO 0); --$ Ram
   --------------------OP CODES--------------------
   CONSTANT opNOP : std_logic_vector(4 DOWNTO 0) := "00000"; --$ NOP
   CONSTANT opHLT : std_logic_vector(4 DOWNTO 0) := "00001"; --$ HLT

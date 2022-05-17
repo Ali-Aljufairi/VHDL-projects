@@ -103,29 +103,3 @@ BEGIN
   END PROCESS;
 END ARCHITECTURE;
 
--- enable <= "00000001" WHEN Write_Address = "000" AND WB_enable = '1' ELSE
---   "00000010" WHEN Write_Address = "001" AND WB_enable = '1' ELSE
---   "00000100" WHEN Write_Address = "010" AND WB_enable = '1' ELSE
---   "00001000" WHEN Write_Address = "011" AND WB_enable = '1' ELSE
---   "00010000" WHEN Write_Address = "100" AND WB_enable = '1' ELSE
---   "00100000" WHEN Write_Address = "101" AND WB_enable = '1' ELSE
---   "01000000" WHEN Write_Address = "110" AND WB_enable = '1' ELSE
---   "10000000" WHEN Write_Address = "111" AND WB_enable = '1' ELSE
---   "00000000";
-
--- Src2_data <= q0 WHEN Read_Address_2 = "000"
---   ELSE q1 WHEN Read_Address_2 = "001"
---   ELSE q2 WHEN Read_Address_2 = "010"
---   ELSE q3 WHEN Read_Address_2 = "011"
---   ELSE q4 WHEN Read_Address_2 = "100"
---   ELSE q5 WHEN Read_Address_2 = "101"
---   ELSE q6 WHEN Read_Address_2 = "110"
---   ELSE q7 WHEN Read_Address_2 = "111";
--- Src1_data <= q0 WHEN Read_Address_1 = "000"
---   ELSE q1 WHEN Read_Address_1 = "001"
---   ELSE q2 WHEN Read_Address_1 = "010"
---   ELSE q3 WHEN Read_Address_1 = "011"
---   ELSE q4 WHEN Read_Address_1 = "100"
---   ELSE q5 WHEN Read_Address_1 = "101"
---   ELSE q6 WHEN Read_Address_1 = "110"
---   ELSE q7 WHEN Read_Address_1 = "111";

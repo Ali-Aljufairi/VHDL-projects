@@ -2,13 +2,13 @@ LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 
 ENTITY n_adder IS
-  GENERIC (n : integer := 16);
+  GENERIC (n : integer := 16); -- number of bits  
 
   PORT (
-    A, B : IN std_logic_vector(n - 1 DOWNTO 0);
-    CIN : IN std_logic;
-    F : OUT std_logic_vector(n - 1 DOWNTO 0);
-    COUT : OUT std_logic);
+    A, B : IN std_logic_vector(n - 1 DOWNTO 0); --$ input  
+    CIN : IN std_logic; --$ input
+    F : OUT std_logic_vector(n - 1 DOWNTO 0); --$ output
+    COUT : OUT std_logic); --$ output
 END ENTITY;
 
 ARCHITECTURE nAdder OF n_adder IS

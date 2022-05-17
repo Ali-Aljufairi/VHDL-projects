@@ -367,7 +367,7 @@ BEGIN
   -- mux selector
   RET_or_RTI <= RET_flag_E_M OR RTI_flag_E_M;
 
-  -- mux to choose between final PC value and popped PC from stack in case of RET/RTI
+  --$ mux to choose between final PC value and popped PC from stack in case of RET/RTI
   PC_or_RTI : ENTITY work.MUX_1_2 PORT MAP(In1 => final_PC, In2 => Mem_res, sel => RET_or_RTI, out_data => PC_or_RET);
 
   -- PC register

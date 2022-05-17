@@ -35,4 +35,4 @@ BEGIN
 
   jc <= '1' WHEN branch_en = '1' AND op_code = "010" AND c_flag = '1'
     ELSE '0';
-END JMP_DETECT_ARCH;
+END ARCHITECTURE;
