@@ -9,9 +9,7 @@ entity lab1_part2 is
   port (
     A : in std_logic_vector(length - 1 downto 0) := Ali_Redha_A;
     B : in std_logic_vector(length - 1 downto 0) := Ali_Redha_B;
-    R : out std_logic_vector(length - 1 downto 0)
-
-  );
+    R : out std_logic_vector(length - 1 downto 0));
 end entity;
 
 architecture rtl of lab1_part2 is

@@ -19,8 +19,8 @@ use IEEE.numeric_std.all;
                 r := m mod n;
                 m:= n;
                 n := r;
-					 }
-					 
+		
+                }			 
             end loop;
     end process;
     end architecture;

@@ -12,6 +12,7 @@ PACKAGE ITCE364Project_labs IS
 
     ----------------------Type----------------------------------------
     TYPE rom_type IS ARRAY(0 TO 7) OF STD_LOGIC_VECTOR(2 DOWNTO 0);
+    
     TYPE reg_array IS ARRAY(address DOWNTO 0) OF STD_LOGIC_VECTOR(length -1 DOWNTO 0);
 
 
@@ -24,8 +25,6 @@ PACKAGE ITCE364Project_labs IS
         4 => "100",
         5 => "101",
         6 => "110",
-        7 => "111"
-
-    );
+        7 => "111");
 
 END PACKAGE;

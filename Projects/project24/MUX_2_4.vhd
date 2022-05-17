@@ -3,8 +3,8 @@ USE ieee.std_logic_1164.ALL;
 ENTITY MUX_2_4 IS
   GENERIC (n : integer := 32);
   PORT (
-    In1, In2, In3, In4 : IN std_logic_vector(n - 1 DOWNTO 0);
-    sel1, sel2 : IN std_logic;
+    In1, In2, In3, In4 : IN std_logic_vector(n - 1 DOWNTO 0); --$ input  
+    sel1, sel2 : IN std_logic; --$ selecteros
     out_data : OUT std_logic_vector(n - 1 DOWNTO 0)
   );
 END ENTITY;
