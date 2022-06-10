@@ -1,0 +1,58 @@
+# Copyright (C) 2020  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and any partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details, at
+# https://fpgasoftware.intel.com/eula.
+
+# Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+# File: E:\OneDrive - University of Bahrain\Documents\UNI\ITCE364\Codes\Projects\project31\top.csv
+# Generated on: Fri May 20 17:20:40 2022
+
+# Note: The column header names should not be changed if you wish to import this .csv file into the Quartus Prime software.
+
+To,Direction,Location,I/O Bank,VREF Group,I/O Standard,Reserved,Current Strength,Slew Rate,Differential Pair,Strict Preservation
+clk,Input,PIN_N5,2,B2_N0,,,,,,
+hex_1[7],Output,PIN_D15,7,B7_N0,,,,,,
+hex_1[6],Output,PIN_C17,7,B7_N0,,,,,,
+hex_1[5],Output,PIN_D17,7,B7_N0,,,,,,
+hex_1[4],Output,PIN_E16,7,B7_N0,,,,,,
+hex_1[3],Output,PIN_C16,7,B7_N0,,,,,,
+hex_1[2],Output,PIN_C15,7,B7_N0,,,,,,
+hex_1[1],Output,PIN_E15,7,B7_N0,,,,,,
+hex_1[0],Output,PIN_C14,7,B7_N0,,,,,,
+hex_2[7],Output,PIN_A16,7,B7_N0,,,,,,
+hex_2[6],Output,PIN_B17,7,B7_N0,,,,,,
+hex_2[5],Output,PIN_A18,7,B7_N0,,,,,,
+hex_2[4],Output,PIN_A17,7,B7_N0,,,,,,
+hex_2[3],Output,PIN_B16,7,B7_N0,,,,,,
+hex_2[2],Output,PIN_E18,6,B6_N0,,,,,,
+hex_2[1],Output,PIN_D18,6,B6_N0,,,,,,
+hex_2[0],Output,PIN_C18,7,B7_N0,,,,,,
+hex_3[7],Output,PIN_A19,7,B7_N0,,,,,,
+hex_3[6],Output,PIN_B22,6,B6_N0,,,,,,
+hex_3[5],Output,PIN_C22,6,B6_N0,,,,,,
+hex_3[4],Output,PIN_B21,6,B6_N0,,,,,,
+hex_3[3],Output,PIN_A21,6,B6_N0,,,,,,
+hex_3[2],Output,PIN_B19,7,B7_N0,,,,,,
+hex_3[1],Output,PIN_A20,7,B7_N0,,,,,,
+hex_3[0],Output,PIN_B20,6,B6_N0,,,,,,
+hex_4[7],Output,PIN_D22,6,B6_N0,,,,,,
+hex_4[6],Output,PIN_E17,6,B6_N0,,,,,,
+hex_4[5],Output,PIN_D19,6,B6_N0,,,,,,
+hex_4[4],Output,PIN_C20,6,B6_N0,,,,,,
+hex_4[3],Output,PIN_C19,7,B7_N0,,,,,,
+hex_4[2],Output,PIN_E21,6,B6_N0,,,,,,
+hex_4[1],Output,PIN_E22,6,B6_N0,,,,,,
+hex_4[0],Output,PIN_F21,6,B6_N0,,,,,,
+in1,Input,PIN_F15,7,B7_N0,,,,,,
+in2,Input,PIN_B14,7,B7_N0,,,,,,
+rst,Input,PIN_C10,7,B7_N0,,,,,,

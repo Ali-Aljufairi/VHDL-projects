@@ -29,9 +29,9 @@ BEGIN
     IF rst = '1' THEN
       exception2 <= '0';
     ELSIF falling_edge(clk) THEN
-      IF ((unsigned(SP_output) = x"000fffff" AND POP_i = '1')
-        OR (unsigned(SP_output) = x"000ffffe" AND (RET_i = '1' OR RTI_i = '1'))
-        OR (unsigned(SP_output) = x"000fffff" AND (RET_i = '1' OR RTI_i = '1'))
+      IF ((unsigned(SP_output) = x"000009c4" AND POP_i = '1')
+        OR (unsigned(SP_output) = x"000009c3" AND (RET_i = '1' OR RTI_i = '1'))
+        OR (unsigned(SP_output) = x"000009c4" AND (RET_i = '1' OR RTI_i = '1'))
         ) THEN
         exception2 <= '1';
       ELSE
@@ -41,10 +41,10 @@ BEGIN
   END PROCESS;
 
   newSP <= std_logic_vector(unsigned(SP_output) + 1)
-    WHEN POP_i = '1' AND (unsigned(SP_output) /= x"000fffff")
+    WHEN POP_i = '1' AND (unsigned(SP_output) /= x"000009c4")
     ELSE
     std_logic_vector(unsigned(SP_output) + 2)
-    WHEN (RET_i = '1' OR RTI_i = '1') AND (unsigned(SP_output) /= x"000ffffe") AND (unsigned(SP_output) /= x"000fffff")
+    WHEN (RET_i = '1' OR RTI_i = '1') AND (unsigned(SP_output) /= x"000009c3") AND (unsigned(SP_output) /= x"000009c4")
     ELSE
     std_logic_vector(unsigned(SP_output) - 1)
     WHEN PUSH_i = '1'
@@ -58,13 +58,13 @@ BEGIN
     PUSH_i = '1'
     ELSE
     std_logic_vector(unsigned(SP_output) + 1)
-    WHEN POP_i = '1' AND (unsigned(SP_output) /= x"000fffff")
+    WHEN POP_i = '1' AND (unsigned(SP_output) /= x"000009c4")
     ELSE
     std_logic_vector(unsigned(SP_output) - 1) WHEN -- @ram: write32:let d = passed address:data is written in d and d+1 
     INT_i = '1' OR CALL_i = '1'
     ELSE
     std_logic_vector(unsigned(SP_output) + 1)
-    WHEN (RET_i = '1' OR RTI_i = '1') AND (unsigned(SP_output) /= x"000ffffe") AND (unsigned(SP_output) /= x"000fffff")
+    WHEN (RET_i = '1' OR RTI_i = '1') AND (unsigned(SP_output) /= x"000009c4") AND (unsigned(SP_output) /= x"000fffff")
     ELSE
     SP_output
     ;

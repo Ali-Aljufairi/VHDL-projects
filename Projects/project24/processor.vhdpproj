@@ -1,0 +1,38 @@
+﻿<Project>
+  <ItemGroup>
+    <File Include="COUNTER.vhd" />
+    <File Include="DE_EX_Reg.vhd" />
+    <File Include="Decoder_Mux.vhd" />
+    <File Include="EX_MEM_Reg.vhd" />
+    <File Include="F_D_Buffer.vhd" />
+    <File Include="ForwardingUnit.vhd" />
+    <File Include="JMP_DETECT.vhd" />
+    <File Include="JMP_DETECT2.vhd" />
+    <File Include="LOAD_USE_CASE_DETECTOR.vhd" />
+    <File Include="MUX_1_2.vhd" />
+    <File Include="MUX_2_4.vhd" />
+    <File Include="M_W_Buffer.vhd" />
+    <File Include="MemoryStage.vhd" />
+    <File Include="PC_INCREMENT.vhd" />
+    <File Include="Register.vhd" />
+    <File Include="Register_File.vhd" />
+    <File Include="SP_Address_Unit.vhd" />
+    <File Include="SP_entity.vhd" />
+    <File Include="adder.vhd" />
+    <File Include="alu.vhd" />
+    <File Include="check.vhd" />
+    <File Include="control_unit.vhd" />
+    <File Include="instructionRam.vhd" />
+    <File Include="load_suse_case_flush_stalling.vhd" />
+    <File Include="memo_address_mux.vhd" />
+    <File Include="memo_data_mux.vhd" />
+    <File Include="n_adder.vhd" />
+    <File Include="partA.vhd" />
+    <File Include="partB.vhd" />
+    <File Include="pkg.vhd" />
+    <File Include="processor.vhd" />
+    <File Include="ram.vhd" />
+    <File Include="register32.vhd" />
+  </ItemGroup>
+  <PropertyGroup />
+</Project>
