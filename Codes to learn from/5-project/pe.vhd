@@ -1,53 +1,53 @@
-LIBRARY IEEE;
-USE IEEE.STD_LOGIC_1164.ALL;
-USE IEEE.numeric_std.ALL;
-USE work.ITCE211Project_library.ALL;
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.numeric_std.all;
+use work.ITCE211Project_library.all;
 
-ENTITY pe IS
+entity pe is
 
-	PORT (
-		clk : IN STD_LOGIC;
-		eni, reset : IN STD_LOGIC;
-		numberin : IN STD_LOGIC_VECTOR(data_width - 1 DOWNTO 0) := (OTHERS => '0');
-		numberout : OUT STD_LOGIC_VECTOR(data_width - 1 DOWNTO 0) := (OTHERS => '0');
-		eno : OUT STD_LOGIC := '0';
-		number : OUT STD_LOGIC_VECTOR(data_width - 1 DOWNTO 0) := (OTHERS => '0')
-	);
+  port (
+    clk : in std_logic;
+    eni, reset : in std_logic;
+    numberin : in std_logic_vector(data_width - 1 downto 0) := (others => '0');
+    numberout : out std_logic_vector(data_width - 1 downto 0) := (others => '0');
+    eno : out std_logic := '0';
+    number : out std_logic_vector(data_width - 1 downto 0) := (others => '0')
+  );
 
-END ENTITY;
+end entity;
 
-ARCHITECTURE rtl OF pe IS
+architecture rtl of pe is
 
-	SIGNAL stored : STD_LOGIC_VECTOR (data_width - 1 DOWNTO 0) := (OTHERS => '0');
-BEGIN
+  signal stored : std_logic_vector (data_width - 1 downto 0) := (others => '0');
+begin
 
-	number <= stored;
+  number <= stored;
 
-	PROCESS (clk, reset, eni)
-	BEGIN
-		IF reset = '1' THEN
-			eno <= '0';
-			stored <= (OTHERS => '0');
-			numberout <= (OTHERS => '0');
+  process (clk, reset, eni)
+  begin
+    if reset = '1' then
+      eno <= '0';
+      stored <= (others => '0');
+      numberout <= (others => '0');
 
-		ELSIF rising_edge (clk) THEN
+    elsif rising_edge (clk) then
 
-			IF eni = '0' THEN
-				eno <= '0';
-				numberout <= (OTHERS => '0');
+      if eni = '0' then
+        eno <= '0';
+        numberout <= (others => '0');
 
-			ELSIF numberin > stored AND eni = '1' THEN
-				eno <= '1';
-				numberout <= stored;
-				stored <= numberin;
+      elsif numberin > stored and eni = '1' then
+        eno <= '1';
+        numberout <= stored;
+        stored <= numberin;
 
-			ELSE
-				eno <= '1';
-				numberout <= numberin;
+      else
+        eno <= '1';
+        numberout <= numberin;
 
-			END IF;
+      end if;
 
-		END IF;
-	END PROCESS;
+    end if;
+  end process;
 
-END ARCHITECTURE;
+end architecture;

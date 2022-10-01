@@ -14,16 +14,12 @@
 --https://fpgasoftware.intel.com/eula.
 
 
-component Ram
+component ram
 	PORT
 	(
 		address_a		: IN STD_LOGIC_VECTOR (11 DOWNTO 0);
 		address_b		: IN STD_LOGIC_VECTOR (11 DOWNTO 0);
 		clock		: IN STD_LOGIC  := '1';
-		data_a		: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
-		data_b		: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
-		wren_a		: IN STD_LOGIC  := '0';
-		wren_b		: IN STD_LOGIC  := '0';
 		q_a		: OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
 		q_b		: OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
 	);
