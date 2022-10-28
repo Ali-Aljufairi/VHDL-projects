@@ -5,6 +5,8 @@ USE ieee.std_logic_unsigned.ALL;
 USE ieee.std_logic_arith.ALL;
 USE work.ITCE364Project_labs.ALL;
 
+
+
 ENTITY lab2 IS
     PORT (
         clk, wr_en : IN STD_LOGIC := '0';
@@ -18,7 +20,7 @@ ARCHITECTURE rtl OF lab2 IS
     SIGNAL myreg : reg_array := (OTHERS => (OTHERS => '-'));
 BEGIN
 
-    PROCESS (clk, wr_en, WB_add, WB) -- process to write to registers            
+    PROCESS (clk, wr_en, WB_add) -- process to write to registers            
     BEGIN
         IF rising_edge(clk) THEN
             IF (wr_en = '1') THEN
