@@ -1,4 +1,4 @@
-# VHDL
+# VHDL-Projects
 
 
 This project contains several files that will help you learn about VHDL, a hardware description language used to 
